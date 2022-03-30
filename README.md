@@ -12,7 +12,7 @@ This is the best blog app ever app, it was build with love using RoR.
 
 # Getting Started
 
-1. Clone the project using git-bash or Githup Desktop.
+1. Clone the project using `git clone`.
 2. Open the project folder with VSCode or any Editor.
 3. Open terminal and navigate to the project folder.
 4. Type `irb`.
