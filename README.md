@@ -1,8 +1,8 @@
-## Best Blog Ever
+# Best Blog Ever
 
 This is the best blog app ever app, it was build with love using RoR.
 
-# Built With
+## Built With
 
 - Ruby
 - Ruby on Rails
@@ -10,13 +10,21 @@ This is the best blog app ever app, it was build with love using RoR.
 - PostgreSQL
 
 
-# Getting Started
+## Getting Started
 
 1. Clone the project using `git clone`.
 2. Open the project folder with VSCode or any Editor.
 3. Open terminal and navigate to the project folder.
 4. Type `irb`.
 5. Copy the code from files and run it.
+
+
+## Tests
+
+1. Open a terminal and `cd` into the project repository.
+2. Run `rspec ./spec/requests/users_request_spec.rb`.
+3. Run `rspec ./spec/requests/posts_request_spec.rb`.
+
 
 ## Author
 
