@@ -1,1 +1,23 @@
-<h1 class="font-bold">THIS IS THE USER PAGE FOR A SPECIFIC USER, THEIR BIO, AND THEIR POSTS</h1>
+<h1 class="font-bold w-full text-center m-5">PROFILE PAGE</h1><br>
+<div class="user-card flex"> 
+    <div class="user-photo border-2 w-36 h-24 mx-5"></div>
+ <div class="border-2 w-full flex items-center content-center flex-wrap">
+    <div class="text-3xl ml-5 w-full"><%= link_to "#{@user.name}", user_path(@user.id), class: 'link' %></div>
+    <span class="text-base w-full text-right mr-5">Number of posts: <%= @user.posts.count%></span>
+</div>
+ </div>
+ <div class="container border-2 w-full mx-5 mt-5 p-5">
+ <strong>Bio</strong><br><br>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus nisi fringilla dolor molestie vulputate. Nunc sollicitudin tellus porttitor tristique consequat. Nulla sem sapien, viverra sit amet orci ac, mollis tristique tellus. Pellentesque dictum sapien quis aliquam aliquam.</p>
+ </div>
+ <% @user.recent_posts.each do |post| %>
+ <div class="post-card flex border-2 w-full m-5 p-5 flex-wrap">
+ <strong>Post #<%= post.id%></strong><br>
+ <div class="w-full">
+ Title: <%= post.title %><br>
+ <%= post.text %><br>
+ </div>
+ <span class="w-full text-right mr-5">Comments: <%= 0 if post.comments_counter == nil%> Likes: <%= 0 if post.likes_counter == nil%></span>
+ </div>
+ <% end %>
+ <div class="container w-full flex justify-center mt-10"><button class="bg-gray-300 border-2 p-5"><%= link_to "See all posts",  user_posts_path(@user.id), class: 'link' %></button></div>
