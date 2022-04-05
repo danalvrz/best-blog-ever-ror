@@ -8,7 +8,7 @@
  </div>
  <div class="container border-2 w-full mx-5 mt-5 p-5">
  <strong>Bio</strong><br><br>
- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus nisi fringilla dolor molestie vulputate. Nunc sollicitudin tellus porttitor tristique consequat. Nulla sem sapien, viverra sit amet orci ac, mollis tristique tellus. Pellentesque dictum sapien quis aliquam aliquam.</p>
+ <p><%= @user.bio%></p>
  </div>
  <% @user.recent_posts.each do |post| %>
  <div class="post-card flex border-2 w-full m-5 p-5 flex-wrap">
@@ -17,7 +17,7 @@
  Title: <%= post.title %><br>
  <%= post.text %><br>
  </div>
- <span class="w-full text-right mr-5">Comments: <%= 0 if post.comments_counter == nil%> Likes: <%= 0 if post.likes_counter == nil%></span>
+ <span class="w-full text-right mr-5">Comments: <%= post.comments.count %> Likes: <%= post.likes.count%></span>
  </div>
  <% end %>
  <div class="container w-full flex justify-center mt-10"><button class="bg-gray-300 border-2 p-5"><%= link_to "See all posts",  user_posts_path(@user.id), class: 'link' %></button></div>

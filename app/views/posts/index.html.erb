@@ -15,7 +15,7 @@
  <span class="w-full text-right mr-5">Comments: <%= post.comments.count %> Likes: <%= post.likes.count%></span>
  </div>
  <div class="post-card flex border-2 w-full m-5 mt-0 p-5">
- <%post.comments.each do |comment|%>
+ <%post.recent_comments.each do |comment|%>
  <%= comment.author.name %>: <%= comment.text %><br>
  <%end%>
  </div>
