@@ -16,7 +16,9 @@ This is the best blog app ever app, it was build with love using RoR.
 2. Open the project folder with VSCode or any Editor.
 3. Open terminal and navigate to the project folder.
 4. Run `bundle install`.
-5. Run `rails db:create`.
+5. Run `rails db:migrate`.
+6. Run `rails db:create`.
+7. Run `rails s`.
 
 
 ## Tests
