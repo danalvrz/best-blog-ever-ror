@@ -1,1 +1,22 @@
-<h1 class="font-bold">HERE IS A LIST OF POSTS FOR A GIVEN USER</h1>
+<div class="user-card flex mt-10"> 
+    <div class="user-photo border-2 w-36 h-24 mx-5"></div>
+ <div class="border-2 w-full flex items-center content-center flex-wrap">
+    <div class="text-3xl ml-5 w-full"><%= link_to "#{@user.name}", user_path(@user.id), class: 'link' %></div>
+    <span class="text-base w-full text-right mr-5">Number of posts: <%= @user.posts.count%></span>
+</div>
+ </div>
+ <% @user.posts.each do |post| %>
+ <div class="post-card flex border-2 w-full m-5 mb-0 p-5 flex-wrap">
+ <strong><%= link_to "Post ##{post.id}", user_post_path(id:post.id), class: 'link' %></strong><br>
+ <div class="w-full">
+ Title: <%= post.title %><br>
+ <%= post.text %><br>
+ </div>
+ <span class="w-full text-right mr-5">Comments: <%= post.comments.count %> Likes: <%= post.likes.count%></span>
+ </div>
+ <div class="post-card flex border-2 w-full m-5 mt-0 p-5">
+ <%post.recent_comments.each do |comment|%>
+ <%= comment.author.name %>: <%= comment.text %><br>
+ <%end%>
+ </div>
+ <% end %>
