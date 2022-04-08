@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
+  post '/posts/:post_id/comments', to: "comments#create"
+  get '/posts/:post_id/comments/new', to: "comments#new"
   root "users#index"
   # Defines the root path route ("/")
   # root "articles#index"
