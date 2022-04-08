@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
-    @comments = @post.comments
+    @comments = Comment.includes(:post).where(post: { id: params[:post_id] })
   end
 
   def new
@@ -19,6 +19,8 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.new(params.require(:post).permit(:title, :text))
     @post.author_id = current_user.id
+    @post.comments_counter = 0
+    @post.likes_counter = 0
 
     if @post.save
       redirect_to user_posts_path(@user), notice: 'Post was successfully created.'
