@@ -8,7 +8,7 @@ Title: <%= @post.title%><br>
 </div>
 <div class="post-card flex-column border-2 w-11/12 mx-auto mt-0 p-5">
 <strong>Comments</strong><br>
- <% @comments.each do |comment| %>
+ <% @comments.includes(:author).each do |comment| %>
  <%= comment.author.name %>: <%= comment.text %><br>
  <%end%>
  </div>
