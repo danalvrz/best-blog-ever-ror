@@ -21,9 +21,9 @@ class PostsController < ApplicationController
     @post.author_id = current_user.id
 
     if @post.save
-      redirect_to user_posts_path(@user), notice: "Post was successfully created."
+      redirect_to user_posts_path(@user), notice: 'Post was successfully created.'
     else
-      flash[:notice] = "Something went wrong!"
+      flash[:notice] = 'Something went wrong!'
       render 'posts/index'
     end
   end
