@@ -1,0 +1,12 @@
+<h4>New comment</h4>
+
+ <%= form_with model: [ @user, @post, @post.comments.build ] do |form| %>
+   <div>
+     <%= form.label :text, style: "display: block" %>
+     <%= form.text_area :text %>
+   </div>
+
+   <div>
+     <%= form.submit %>
+   </div>
+ <% end %> 
