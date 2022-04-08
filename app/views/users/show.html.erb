@@ -2,7 +2,7 @@
 <div class="user-card flex"> 
     <div class="user-photo border-2 w-36 h-24 mx-5"></div>
  <div class="border-2 w-full flex items-center content-center flex-wrap">
-    <div class="text-3xl ml-5 w-full"><%= link_to "#{@user.name}", user_path(@user.id), class: 'link' %></div>
+    <div class="text-3xl ml-5 w-full"><%= @user.name %></div>
     <span class="text-base w-full text-right mr-5">Number of posts: <%= @user.posts.count%></span>
 </div>
  </div>

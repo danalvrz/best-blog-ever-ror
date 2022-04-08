@@ -1,0 +1,12 @@
+<h2 class="font-bold mt-5">Create a new post</h2>
+ <%= form_with model: [ @user, @post ] do |form| %>
+     <p>
+       <%= form.text_field :title, placeholder: 'Title' %>
+     </p>
+     <p>
+       <%= form.text_area :text, placeholder: 'Text' %>
+     </p>
+     <p class="border-2 rounded w-fit p-2 bg-slate-200">
+       <%= form.submit "Create Post" %>
+     </p>
+   <% end %> 

@@ -1,0 +1,11 @@
+<h4 class="font-bold mt-5">Add New comment</h4>
+
+ <%= form_with model: [ @user, @post, @post.comments.build ] do |form| %>
+   <div>
+     <%= form.text_area :text, placeholder: 'Comment' %>
+   </div>
+
+   <div class="bg-sky-500 text-white rounded p-2 mt-5 w-fit" >
+     <%= form.submit %>
+   </div>
+ <% end %> 

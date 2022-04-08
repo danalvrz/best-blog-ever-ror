@@ -18,7 +18,8 @@ This is the best blog app ever app, it was build with love using RoR.
 4. Run `bundle install`.
 5. Run `rails db:migrate`.
 6. Run `rails db:create`.
-7. Run `rails s`.
+7. Run `bundle exec rake assets:precompile`
+8. Run `rails s`.
 
 
 ## Tests
