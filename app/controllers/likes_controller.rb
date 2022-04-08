@@ -2,11 +2,10 @@ class LikesController < ApplicationController
     def create
       @user = User.find(params[:user_id])
       @post = Post.find(params[:post_id])
-      @like = Like.new(author: current_user, post: @post)
+      @like = @post.likes.new(author: current_user)
  
       if @like.save
-        @like.likes_counter
-        redirect_to user_post_path(@user, @post)
+        redirect_to user_post_path(@user, @post), notice:"You liked it!"
       else
         flash[:notice] = "Error!"
       end
