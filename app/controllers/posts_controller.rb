@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @post = Post.new(params.require(:post).permit(:title, :text))
+    @post = Post.new(params.require(:post).permit(:authenticity_token, :title, :text, :user_id))
     @post.author_id = current_user.id
     @post.comments_counter = 0
     @post.likes_counter = 0

@@ -8,11 +8,25 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    
   </head>
 
   <body>
     <main class="container mx-auto">
+    <nav class="bg-gray-800 container flex h-10 text-white justify-evenly p-2">
+         
+         <a href="/" class="nav-link">Home</a>
+         <% unless user_signed_in? %>
+         <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+         <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
+         <% end %>
+         <% if user_signed_in? %>
+           <%= link_to "Sign out", destroy_user_session_path, method: :delete,  class: "nav-link" %>
+         <% end %>
+         
+       </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>
