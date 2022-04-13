@@ -5,29 +5,51 @@ This is the best blog app ever app, it was build with love using RoR.
 ## Built With
 
 - Ruby
-- Ruby on Rails
+- Rails
+- PostgresSQL
 - Tailwind CSS
-- PostgreSQL
-
 
 ## Getting Started
 
-1. Clone the project using `git clone`.
-2. Open the project folder with VSCode or any Editor.
-3. Open terminal and navigate to the project folder.
-4. Run `bundle install`.
-5. Run `rails db:migrate`.
-6. Run `rails db:create`.
-7. Run `bundle exec rake assets:precompile`
-8. Run `rails s`.
+To get a local copy up and running follow the steps below.
 
+### Prerequisites
+- Ruby
+- Rails
 
-## Tests
+### Setup
+- `git clone` this repo
+- `cd` into the generated directory
+- Run `bundle install`
+- Run `rails db:create` 
+- Run `rails db:migrate` 
+- Run `rails s` 
+Note: In case this doesn't work, try `rails db:drop` and do the steps all over again
 
-1. Open a terminal and `cd` into the project repository.
-2. Run `rspec ./spec/requests/users_request_spec.rb`.
-3. Run `rspec ./spec/requests/posts_request_spec.rb`.
+### Install
+- Run `bundle install` to install all the necessary dependencies
+  
+### Tests
 
+- Open a terminal and cd into the project folder.
+- Run `rspec ./spec/controllers/users_spec.rb`
+- Run `rspec ./spec/controllers/posts_spec.rb`
+
+### Usage
+- Run `rails s` to expose a local webserver
+
+### Sending emails
+To test for emails sign up for FREE with [Mailtrap.io](https://mailtrap.io/). 
+Once signed up, copy your email configuration details for mailtrap and configure them in your `config/credentials.rb` file. Please see example below.
+
+`ActionMailer::Base.smtp_settings = {`<br>
+  `:user_name => '<as_provided_by_mailtrap>',`<br>
+  `:password => '<as_provided_by_mailtrap>',`<br>
+  `:address => 'smtp.mailtrap.io',`<br>
+  `:domain => 'smtp.mailtrap.io',`<br>
+  `:port => '2525',`<br>
+  `:authentication => :cram_md5`<br>
+`}`<br>
 
 ## Author
 
@@ -41,12 +63,12 @@ This is the best blog app ever app, it was build with love using RoR.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues).
+Feel free to check the [issues page](https://github.com/danalvrz/best-blog-ever-ror/issues).
 
-## 👏 Show your support
+## Show your support
 
 Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+This project is [MIT](./MIT.md) licensed.
