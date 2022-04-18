@@ -2,7 +2,11 @@
 <div class="container w-11/12 mx-auto">
 <% @users.each do |person| %>
  <div class="user-card flex">
-    <div class="user-photo border-2 w-36 h-24 mx-5"></div>
+    <div class="user-photo border-2 w-36 h-24 mx-5">
+    <%if person.photo%>
+    <img src=<%person.photo%>>
+    <% end %>
+    </div>
  <div class="border-2 w-full flex items-center content-center flex-wrap">
     <div class="text-3xl ml-5 w-full"><%= link_to "#{person.name}", user_path(person.id), class: 'link' %></div>
     <span class="text-base w-full text-right mr-5">Number of posts: <%= person.posts.count%></span>
