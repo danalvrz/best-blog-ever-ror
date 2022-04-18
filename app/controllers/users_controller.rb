@@ -4,14 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:id] == 'sign_out'
+      sign_out
+      redirect_to root_path
+    else
+      @user = User.find(params[:id])
+    end
   end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(posts_counter: 0)
-  end
+  
 end
