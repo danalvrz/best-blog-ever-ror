@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like.author_id = current_user.id
 
     if @like.save
-      redirect_to user_post_path(@user, @post), notice: 'You liked it!'
+      redirect_to user_post_path(@post.author, @post), notice: 'You liked it!'
     else
       flash[:notice] = 'Error!'
     end
