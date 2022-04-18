@@ -9,9 +9,19 @@ Title: <%= @post.title%><br>
 <div class="post-card flex-column border-2 w-11/12 mx-auto mt-0 p-5">
 <strong>Comments</strong><br>
  <% @post.comments.includes(:author).each do |comment| %>
- <%= comment.author.name %>: <%= comment.text %><br>
+ <p class="w-fit inline-block"><%= comment.author.name %>: <%= comment.text %>
+ <% if can? :destroy, comment %>
+ <span>
+          <%= button_to "Delete Comment", user_post_comment_path(user_id: current_user.id, post_id: @post.id, id:comment.id), method: :delete, class: "inline-block text-red-500" %>
+        </span>
+        <% end %>
+        
  <%end%>
+ </p>
  </div>
  <p class="notice text-green-700"><%= notice %></p>
  <%= button_to 'Like this post', user_post_likes_path(@user, @post), method: :post, class: "bg-blue-500 text-white rounded p-2 ml-10 mt-5" %>
+<% if can? :destroy, @post %>
+    <%= button_to 'Delete Post', user_post_path(@user, @post), :method => :delete, class: "bg-red-500 text-white rounded p-2 ml-10 mt-5" %>
+  <% end %>
  <div class="container mx-auto ml-10"><%= render 'shared/comment_form' %></div>

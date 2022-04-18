@@ -29,4 +29,11 @@ class PostsController < ApplicationController
       render 'posts/index'
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to user_posts_path(params[:user_id]), status: :see_other
+  end
 end
