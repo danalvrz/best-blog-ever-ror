@@ -21,6 +21,20 @@ This is the best blog app ever app, it was build with love using RoR.
 7. Run `bundle exec rake assets:precompile`
 8. Run `rails s`.
 
+### Email confirmation
+
+To test for email confirmation sign up for FREE with [Mailtrap.io](https://mailtrap.io/). 
+Once signed up, copy your email configuration details for mailtrap and configure them in your `config/environment.rb` file. Please see example below.
+
+`ActionMailer::Base.smtp_settings = {`<br>
+  `:user_name => '<as_provided_by_mailtrap>',`<br>
+  `:password => '<as_provided_by_mailtrap>',`<br>
+  `:address => 'smtp.mailtrap.io',`<br>
+  `:domain => 'smtp.mailtrap.io',`<br>
+  `:port => '2525',`<br>
+  `:authentication => :cram_md5`<br>
+`}`<br>
+
 
 ## Tests
 
