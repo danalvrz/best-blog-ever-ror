@@ -126,7 +126,7 @@ RSpec.describe 'User', type: :feature do
     end
 
     it 'When a post title is clicked, it redirects to correct post show page' do
-      click_link "See all posts"
+      click_link 'See all posts'
       click_link "Post ##{@post1.id}"
       expect(page).to have_current_path("/users/#{@post1.author_id}/posts/#{@post1.id}")
     end
