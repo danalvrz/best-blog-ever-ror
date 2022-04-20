@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  #attr_reader :current_user
-  
-  #protect_from_forgery with: :exception
+  # attr_reader :current_user
+
+  # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
   before_action :update_allowed_parameters, if: :devise_controller?
@@ -24,10 +24,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def http_token
-      @http_token ||= if request.headers['Authorization'].present?
-        request.headers['Authorization'].split(' ').last
-      end
+    @http_token ||= (request.headers['Authorization'].split.last if request.headers['Authorization'].present?)
   end
 
   def auth_token

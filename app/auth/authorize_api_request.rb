@@ -1,4 +1,5 @@
 class AuthorizeApiRequest
+  # rubocop:disable all
   def initialize(headers = {})
     @headers = headers
   end
@@ -39,3 +40,4 @@ class AuthorizeApiRequest
     raise(ExceptionHandler::MissingToken, Message.missing_token)
   end
 end
+# rubocop:enable all

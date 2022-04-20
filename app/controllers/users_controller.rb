@@ -5,13 +5,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
- # return authenticated token upon signup
+  # return authenticated token upon signup
   def create
     user = User.create!(user_params)
 
     user.confirmed_at = DateTime.now
     user.save
-    
+
     auth_token = AuthenticateUser.new(user.email, user.password).call
     response = { message: Message.account_created, auth_token: auth_token }
     json_response(response, :created)
