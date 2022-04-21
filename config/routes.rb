@@ -9,6 +9,19 @@ Rails.application.routes.draw do
   end
   post '/posts/:post_id/comments', to: "comments#create"
   get '/posts/:post_id/comments/new', to: "comments#new"
+  
+  post 'auth/login', to: 'authentication#authenticate'
+  get 'api/users/:user_id', to: 'api#user_posts'
+  get 'api/users/:user_id/posts/:post_id/comments', to: 'api#user_comments'
+  post 'api/users/:user_id/posts/:post_id/comments', to: 'api#create_comment'
+  namespace :api, defaults: { format: :json} do
+    post 'users/register', to: 'authentication#register'
+    post 'users/login', to: 'authentication#login'
+    get 'api/users/:user_id', to: 'api#user_posts'
+    get 'comments', to: 'api#list_comments'
+    post 'new_comment', to: 'api#create_comment'
+  end
+
   root "users#index"
   # Defines the root path route ("/")
   # root "articles#index"
